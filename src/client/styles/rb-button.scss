@@ -3,15 +3,52 @@
  *****************/
 
 :host {
+	--rb-icon-vertical-align: middle;
 
-	.big {
+	button {
+		display: inline-block;
+		margin-bottom: 0;
+		text-align: center;
+		white-space: nowrap;
+		vertical-align: middle;
+		padding: 6px 12px;
+		font-size: 14px;
+		line-height: 1.42857143;
 
+
+
+		/* Kinds
+		 ********/
+		&.default {
+			background-color: grey;
+		}
+
+		&.success {
+			background-color: green;
+		}
+
+		/* Options
+		 **********/
+		&.big {
+			padding: 10px 16px;
+			font-size: 18px;
+			line-height: 1.33em;
+		}
+
+		&.small {
+			padding: 5px 6px;
+			font-size: 10px;
+			line-height: .75em;
+		}
+
+		/* Icon options
+		 **************/
+		 &.icon-left {
+		 	rb-icon {
+		 		float: left;
+		 	}
+		 }
 	}
-
-	.small {
-
-	}
-
 }
 
 

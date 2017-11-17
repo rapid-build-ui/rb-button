@@ -1,11 +1,11 @@
 /**********
- * RB-button
+ * RB-BUTTON
  **********/
 import { Element as PolymerElement } from '../../../@polymer/polymer/polymer-element.js';
 import { DomIf as DomIf } from '../../../@polymer/polymer/lib/elements/dom-if.js';
-import '../../../webfontloader/webfontloader.js'; // web components doesn't laod fonts natively
+import template from '../views/rb-button.html';
 
-export class RbIcon extends PolymerElement {
+export class RbButton extends PolymerElement {
 	/* Lifecycle
 	 ************/
 	constructor() {
@@ -28,34 +28,43 @@ export class RbIcon extends PolymerElement {
 			size: {
 				type: String,
 				value: ''
+			},
+			icon: {
+				type: String
+			},
+			iconOptions: {
+				type: Object
+			},
+			iconPosition: {
+				type: String
 			}
 		}
 	}
 
-	_iconKindMatched(kind) {
+	_getKind(kind) {
 		if (!kind) {
-			console.log('icon kind is required');
-			return '';
+			return 'default';
 		}
 		kind = kind.toLowerCase();
 
-		switch (true) {
-			case kind.indexOf('devicons')==0:
-				return `devicons ${kind}`
-				break;
-			default:
-				return `fa fa-${kind}`;
-		}
+		return kind;
+	}
+
+	_getIconKind(icon, iconOptions) {
+		if(!!icon) return icon;
+		return iconOptions.kind
+	}
+
+	_getIconPosition(iconPosition) {
+		if(!!iconPosition) return `icon-${iconPosition}`;
+		return '';
 	}
 
 	/* Template
 	 ***********/
 	static get template() {
-		return `
-			<link rel="stylesheet" href="[[importPath]]/styles/rb-button.css">
-			<button type="button"> My Button </button>
-		`;
+		return template;
 	}
 }
 
-customElements.define('rb-button', RbIcon);
+customElements.define('rb-button', RbButton);

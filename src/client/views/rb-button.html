@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="[[importPath]]/styles/rb-button.css">
+
+<button type="button" class$="[[_getKind(kind)]] [[size]] [[_getIconPosition(iconPosition)]]">
+	<slot></slot>
+	<rb-icon kind="[[_getIconKind(icon, iconOptions) ]]"
+			bold="[[iconOptions.bold]]"
+			size="[[iconOptions.size]]">
+
+	</rb-icon>
+</button>
