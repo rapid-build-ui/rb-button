@@ -24,10 +24,11 @@ common:
 		html:
 			templateCache: false
 
-	compile:
+	inline:
 		jsHtmlImports:
 			client:
 				enable: true
+
 demo:
 	build: server: true
 	browser: open: true, reload: true
