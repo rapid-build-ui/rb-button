@@ -21,7 +21,11 @@ export class RbButton extends PolymerElement {
 	 ************/
 	static get properties() {
 		return {
-			kind:	{
+			disabled: {
+				type: Boolean,
+				value: false
+			},
+			kind: {
 				type: String,
 				value: ''
 			},
@@ -37,6 +41,10 @@ export class RbButton extends PolymerElement {
 			},
 			iconPosition: {
 				type: String
+			},
+			type: {
+				type: String,
+				value: 'submit'
 			}
 		}
 	}
