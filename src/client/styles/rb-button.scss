@@ -1,62 +1,61 @@
-/*****************
+/*******************
  * RB-BUTTON STYLES
- *****************/
+ *******************/
+// functions
 @function remy($px, $pxBase: 16) { // :rem (pixels to rem converter)
 	@return ($px / $pxBase) + rem;
 }
 
-:host {
-	--rb-icon-vertical-align: middle;
-	$button-default-color: #007bff;
-	$button-default-border-color: #007bff;
-	$button-radius: remy(4);
+// sass variables
+$button-default-color: #007bff;
+$button-default-border-color: #007bff;
+$button-radius: remy(4);
 
+:host {
+	// --rb-icon-vertical-align: middle;
 	button {
-		font-size: remy(16);
-		font-weight: 400;
 		display: inline-block;
+		// display: flex;
+		padding: remy(6) remy(12);
+		color: white;
+		outline: none;
+		cursor: pointer;
+		font-size: remy(16);
+		line-height: 1.5;
 		border: 1px solid;
-		margin-bottom: 0;
 		text-align: center;
 		white-space: nowrap;
 		vertical-align: middle;
-		padding: remy(6) remy(12);
-		line-height: 1.5;
+		border-radius: var(--rb-button-border-radius, $button-radius);
 		background-color: var(--rb-button-background-color, $button-default-color);
 		transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-		font: 400 11px system-ui;
-		color: white;
 
+		&:not([disabled]):not('disabled'):active {
+			box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+		}
 
 		/* Kinds
 		 ********/
 		&.default {
 			border-color: var(--rb-button-border-color, $button-default-border-color);
-			border-radius: var(--rb-button-border-radius, $button-radius);
 			&:hover {
 				--rb-button-background-color: #0069d9;
 				--rb-button-border-color: #0062cc;
 			}
-
 			&:not([disabled]):not('disabled'):active {
-				box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
 				--rb-button-background-color: #0062cc;
 				--rb-button-border-color: #005cbf;
 			}
-
 		}
 
 		&.success {
 			--rb-button-background-color: #28a745;
 			--rb-button-border-color: #28a745;
-
 			&:hover {
 				--rb-button-background-color: #218838;
 				--rb-button-border-color: #1e7e34;
 			}
-
 			&:not([disabled]):not('disabled'):active {
-				box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
 				--rb-button-background-color: #1e7e34;
 				--rb-button-border-color: #1c7430;
 			}
@@ -65,24 +64,30 @@
 		/* Options
 		 **********/
 		&.big {
-			padding: 10px 16px;
-			font-size: 18px;
-			line-height: 1.33em;
+			padding: remy(10) remy(16);
+			font-size: remy(18);
+			line-height: 1.33rem;
 		}
 
 		&.small {
-			padding: 5px 6px;
-			font-size: 10px;
-			line-height: .75em;
+			padding: remy(5) remy(6);
+			font-size: remy(12);
+			line-height: .75rem;
 		}
 
 		/* Icon options
 		 **************/
-		 &.icon-left {
-		 	rb-icon {
-		 		float: left;
-		 	}
-		 }
+		rb-icon {
+			float: right;
+			margin-left: remy(5);
+		}
+		&.icon-left {
+			rb-icon {
+				float: left;
+				margin-left: 0;
+				margin-right: remy(5);
+			}
+		}
 	}
 }
 
