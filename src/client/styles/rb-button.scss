@@ -27,7 +27,6 @@ $button-radius: remy(4);
 		white-space: nowrap;
 		vertical-align: middle;
 		border-radius: var(--rb-button-border-radius, $button-radius);
-		background-color: var(--rb-button-background-color, $button-default-color);
 		transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
 		&:not([disabled]):not('disabled'):active {
@@ -38,29 +37,65 @@ $button-radius: remy(4);
 		 ********/
 		&.default {
 			border-color: var(--rb-button-border-color, $button-default-border-color);
+			background-color: var(--rb-button-background-color, $button-default-color);
 			&:hover {
-				--rb-button-background-color: #0069d9;
-				--rb-button-border-color: #0062cc;
+				background-color: var(--rb-button-background-color-hover, #0069d9);
+				border-color: var(--rb-button-border-color-hover, #0062cc);
 			}
 			&:not([disabled]):not('disabled'):active {
-				--rb-button-background-color: #0062cc;
-				--rb-button-border-color: #005cbf;
+				background-color: var(--rb-button-background-color-active, #0062cc);
+				border-color: var(--rb-button-border-color-active, #005cbf);
 			}
 		}
 
 		&.success {
-			--rb-button-background-color: #28a745;
-			--rb-button-border-color: #28a745;
+			background-color: #28a745;
+			border-color: #28a745;
 			&:hover {
-				--rb-button-background-color: #218838;
-				--rb-button-border-color: #1e7e34;
+				background-color: #218838;
+				border-color: #1e7e34;
 			}
 			&:not([disabled]):not('disabled'):active {
-				--rb-button-background-color: #1e7e34;
-				--rb-button-border-color: #1c7430;
+				background-color: #1e7e34;
+				border-color: #1c7430;
 			}
 		}
-
+		&.danger {
+			background-color: #d9534f;
+			border-color: #d9534f;
+			&:hover {
+				background-color: #c9302c;
+				border-color: #c12e2a;
+			}
+			&:not([disabled]):not('disabled'):active {
+				background-color: #c9302c;
+				border-color: #c12e2a;
+			}
+		}
+		&.warning {
+			background-color: #f0ad4e;
+			border-color: #f0ad4e;
+			&:hover {
+				background-color: #ec971f;
+				border-color: #eb9316;
+			}
+			&:not([disabled]):not('disabled'):active {
+				background-color: #ec971f;
+				border-color: #eb9316;
+			}
+		}
+		&.info {
+			background-color: #5bc0de;
+			border-color: #5bc0de;
+			&:hover {
+				background-color: #31b0d5;
+				border-color: #2aabd2;
+			}
+			&:not([disabled]):not('disabled'):active {
+				background-color: #31b0d5;
+				border-color: #2aabd2;
+			}
+		}
 		/* Options
 		 **********/
 		&.big {
