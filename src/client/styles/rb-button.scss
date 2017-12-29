@@ -29,9 +29,6 @@ $button-radius: remy(4);
 		border-radius: var(--rb-button-border-radius, $button-radius);
 		transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
-		&:not([disabled]):not('disabled'):active {
-			box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
-		}
 
 		/* Kinds
 		 ********/
@@ -42,10 +39,14 @@ $button-radius: remy(4);
 				background-color: var(--rb-button-background-color-hover, #0069d9);
 				border-color: var(--rb-button-border-color-hover, #0062cc);
 			}
-			&:not([disabled]):not('disabled'):active {
+			&:active {
 				background-color: var(--rb-button-background-color-active, #0062cc);
 				border-color: var(--rb-button-border-color-active, #005cbf);
 			}
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+			}
+
 		}
 
 		&.success {
@@ -55,45 +56,58 @@ $button-radius: remy(4);
 				background-color: #218838;
 				border-color: #1e7e34;
 			}
-			&:not([disabled]):not('disabled'):active {
+			&:active {
 				background-color: #1e7e34;
 				border-color: #1c7430;
 			}
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba(40,167,69,.5);
+			}
 		}
 		&.danger {
-			background-color: #d9534f;
-			border-color: #d9534f;
+			background-color: #dc3545;
+			border-color: #dc3545;
 			&:hover {
-				background-color: #c9302c;
-				border-color: #c12e2a;
+				background-color: #c82333;
+				border-color: #bd2130;
 			}
-			&:not([disabled]):not('disabled'):active {
-				background-color: #c9302c;
-				border-color: #c12e2a;
+			&:active {
+				background-color: #bd2130;
+				border-color: #b21f2d;
+			}
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
 			}
 		}
 		&.warning {
-			background-color: #f0ad4e;
-			border-color: #f0ad4e;
+			background-color: #ffc107;
+			border-color: #ffc107;
+			color: #212529;
 			&:hover {
-				background-color: #ec971f;
-				border-color: #eb9316;
+				background-color: #e0a800;
+				border-color: #d39e00;
 			}
-			&:not([disabled]):not('disabled'):active {
-				background-color: #ec971f;
-				border-color: #eb9316;
+			&:active {
+				background-color: #d39e00;
+				border-color: #c69500;
+			}
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba(255,193,7,.5);
 			}
 		}
 		&.info {
-			background-color: #5bc0de;
-			border-color: #5bc0de;
+			background-color: #17a2b8;
+			border-color: #17a2b8;
 			&:hover {
-				background-color: #31b0d5;
-				border-color: #2aabd2;
+				background-color: #138496;
+				border-color: #117a8b;
 			}
-			&:not([disabled]):not('disabled'):active {
-				background-color: #31b0d5;
-				border-color: #2aabd2;
+			&:active {
+				background-color: #117a8b;
+				border-color: #10707f;
+			}
+			&:focus {
+				box-shadow: 0 0 0 0.2rem rgba(23,162,184,.5);
 			}
 		}
 		/* Options
