@@ -7,7 +7,7 @@
 }
 
 // sass variables
-$button-default-color: #007bff;
+$button-default-bg-color: #007bff;
 $button-default-border-color: #007bff;
 $button-radius: remy(4);
 
@@ -29,13 +29,12 @@ $button-radius: remy(4);
 		border-radius: var(--rb-button-border-radius, $button-radius);
 		transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 
-
 		/* Kinds
 		 ********/
 		&.default {
 			border-color: var(--rb-button-border-color, $button-default-border-color);
-			background-color: var(--rb-button-background-color, $button-default-color);
-			&:hover {
+			background-color: var(--rb-button-background-color, $button-default-bg-color);
+			&:hover:not(:disabled) {
 				background-color: var(--rb-button-background-color-hover, #0069d9);
 				border-color: var(--rb-button-border-color-hover, #0062cc);
 			}
@@ -46,13 +45,12 @@ $button-radius: remy(4);
 			&:focus {
 				box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
 			}
-
 		}
 
 		&.success {
 			background-color: #28a745;
 			border-color: #28a745;
-			&:hover {
+			&:hover:not(:disabled) {
 				background-color: #218838;
 				border-color: #1e7e34;
 			}
@@ -67,7 +65,7 @@ $button-radius: remy(4);
 		&.danger {
 			background-color: #dc3545;
 			border-color: #dc3545;
-			&:hover {
+			&:hover:not(:disabled) {
 				background-color: #c82333;
 				border-color: #bd2130;
 			}
@@ -83,7 +81,7 @@ $button-radius: remy(4);
 			background-color: #ffc107;
 			border-color: #ffc107;
 			color: #212529;
-			&:hover {
+			&:hover:not(:disabled) {
 				background-color: #e0a800;
 				border-color: #d39e00;
 			}
@@ -98,7 +96,7 @@ $button-radius: remy(4);
 		&.info {
 			background-color: #17a2b8;
 			border-color: #17a2b8;
-			&:hover {
+			&:hover:not(:disabled) {
 				background-color: #138496;
 				border-color: #117a8b;
 			}
@@ -128,15 +126,35 @@ $button-radius: remy(4);
 		 **************/
 		rb-icon {
 			float: right;
-			margin-left: remy(5);
+			margin-left: remy(10);
 		}
 		&.icon-left {
 			rb-icon {
 				float: left;
 				margin-left: 0;
-				margin-right: remy(5);
+				margin-right: remy(10);
 			}
 		}
+
+		&.small {
+			&:not(.icon-left) {
+				rb-icon {
+					margin-left: remy(6);
+					margin-right: 0;
+				}
+			}
+			rb-icon {
+				margin-right: remy(5)
+			}
+		}
+
+
+		&:disabled {
+			// background-color: lighten($button-default-bg-color, 20%);
+			opacity: .65;
+			cursor: default;
+		}
+
 	}
 }
 

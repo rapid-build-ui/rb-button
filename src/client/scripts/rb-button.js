@@ -33,11 +33,11 @@ export class RbButton extends PolymerElement {
 				type: String,
 				value: ''
 			},
-			icon: {
+			iconKind: {
 				type: String
 			},
-			iconOptions: {
-				type: Object
+			iconSource: {
+				type: String
 			},
 			iconPosition: {
 				type: String
@@ -58,14 +58,14 @@ export class RbButton extends PolymerElement {
 		return kind;
 	}
 
-	_getIconKind(icon, iconOptions) {
-		if(!!icon) return icon;
-		return iconOptions.kind
-	}
-
 	_getIconPosition(iconPosition) {
 		if(!!iconPosition) return `icon-${iconPosition}`;
 		return '';
+	}
+
+	handleClick(){
+		this.dispatchEvent(new CustomEvent('button-click', {detail: {kicked: true}}));
+
 	}
 
 	/* Template
