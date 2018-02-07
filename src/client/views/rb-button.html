@@ -1,14 +1,13 @@
-<link rel="stylesheet" href="[[importPath]]/styles/rb-button.css">
-
 <button
 	class$="[[_getKind(kind)]] [[size]] [[_getIconPosition(iconPosition)]]"
-	disabled$=[[disabled]]
-	>
+	disabled$=[[disabled]]>
 	<slot></slot>
 	<template is="dom-if" if="{{iconKind}}">
 		<rb-icon
 			kind="[[iconKind]]"
-			source="[[iconSource]]"	>
+			source="[[iconSource]]">
 		</rb-icon>
 	</template>
 </button>
+
+<link rel="stylesheet" href="../styles/rb-button.css">

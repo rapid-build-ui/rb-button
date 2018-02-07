@@ -10,7 +10,6 @@ export class RbButton extends PolymerElement {
 	 ************/
 	constructor() {
 		super();
-		this.importPath = '/node_modules/@rapid-build-ui/rb-button';
 	}
 
 	ready() {
