@@ -1,0 +1,14 @@
+/********
+ * SIZES
+ ********/
+&.small {
+	padding: remy(3) remy(6);
+	font-size: remy(12);
+	line-height: 1rem;
+}
+
+&.big {
+	padding: remy(9) remy(16);
+	font-size: remy(18);
+	line-height: 1.7rem;
+}

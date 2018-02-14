@@ -1,0 +1,18 @@
+/*********
+ * COMMON
+ *********/
+& {
+	display: inline-flex;
+	padding: remy(6) remy(12);
+	color: white;
+	outline: none;
+	cursor: pointer;
+	font-size: remy(16);
+	line-height: 1.5rem;
+	border: 1px solid;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	border-radius: var(--rb-button-border-radius, $button-radius);
+	transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

@@ -1,0 +1,49 @@
+/*******
+ * ICON
+ *******/
+&.with-icon {
+	rb-icon {
+		position: relative;
+		top: 1px;
+		margin-left: remy(9);
+	}
+
+	&.icon-left {
+		flex-direction: row-reverse;
+		rb-icon {
+			margin-left: 0;
+			margin-right: remy(8);
+		}
+	}
+
+	/* Sizes
+	 ********/
+	&.small {
+		padding-top: remy(6);
+		rb-icon {
+			top: -1px;
+			margin-right: remy(5)
+		}
+		&:not(.icon-left) {
+			rb-icon {
+				margin-left: remy(6);
+				margin-right: 0;
+			}
+		}
+	}
+
+	&.big {
+		&.icon-left {
+			padding-left: remy(13);
+			rb-icon {
+				margin-right: remy(10);
+			}
+		}
+		&:not(.icon-left) {
+			padding-right: remy(13);
+			rb-icon {
+				margin-left: remy(11);
+			}
+		}
+	}
+}

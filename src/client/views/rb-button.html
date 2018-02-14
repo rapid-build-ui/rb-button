@@ -1,10 +1,12 @@
 <button
-	class$="[[_getKind(kind)]] [[size]] [[_getIconPosition(iconPosition)]]"
-	disabled$=[[disabled]]>
+	type$="[[type]]"
+	on-click="_handleClick"
+	disabled$="[[disabled]]"
+	class$="[[kind]] [[size]] [[_hasIcon(icon)]] [[_iconPosition(icon, iconPosition)]]">
 	<slot></slot>
-	<template is="dom-if" if="{{iconKind}}">
+	<template is="dom-if" if="{{icon}}">
 		<rb-icon
-			kind="[[iconKind]]"
+			kind="[[icon]]"
 			source="[[iconSource]]">
 		</rb-icon>
 	</template>
