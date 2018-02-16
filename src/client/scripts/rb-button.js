@@ -14,6 +14,11 @@ export class RbButton extends PolymerElement {
 
 	ready() {
 		super.ready();
+		const slot = this.root.querySelector('slot');
+		this.__hasContent = !!slot.assignedNodes().length;
+		slot.addEventListener('slotchange', e => {
+			this.__hasContent = !!slot.assignedNodes().length;
+		});
 	}
 
 	/* Properties
@@ -60,9 +65,13 @@ export class RbButton extends PolymerElement {
 
 	/* Computed Bindings
 	 ********************/
+	_hasContent(__hasContent) { // :string
+		if (!!__hasContent) return null;
+		return 'no-content';
+	}
 	_hasIcon(icon) { // :string
 		if(!icon) return null;
-		return `with-icon`;
+		return 'with-icon';
 	}
 	_iconPosition(icon, position) { // :string
 		if(!icon) return null;

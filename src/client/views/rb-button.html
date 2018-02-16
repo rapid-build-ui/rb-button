@@ -2,7 +2,7 @@
 	type$="[[type]]"
 	on-click="_handleClick"
 	disabled$="[[disabled]]"
-	class$="[[kind]] [[size]] [[_hasIcon(icon)]] [[_iconPosition(icon, iconPosition)]]">
+	class$="[[kind]] [[size]] [[_hasContent(__hasContent)]] [[_hasIcon(icon)]] [[_iconPosition(icon, iconPosition)]]">
 	<slot></slot>
 	<template is="dom-if" if="{{icon}}">
 		<rb-icon
