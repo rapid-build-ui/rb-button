@@ -1,11 +1,11 @@
 {
-	"name": "rb-icon-server",
+	"name": "rb-button-server",
 	"version": "0.1.0",
-	"description": "Rapid Build UI - Component Server: rb-icon",
+	"description": "Rapid Build UI - Component Server: rb-button",
 	"license": "MIT",
 	"engines": {
 		"npm": "5.x",
-		"node": "6.11.x"
+		"node": "8.x"
 	},
 	"contributors": [
 		{
