@@ -43,6 +43,9 @@ export class RbButton extends PolymerElement {
 			icon: {
 				type: String
 			},
+			iconSize: {
+				type: Number
+			},
 			iconSource: {
 				type: String
 			},
