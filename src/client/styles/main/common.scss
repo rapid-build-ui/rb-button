@@ -9,7 +9,6 @@
 	border: 1px solid;
 	text-align: center;
 	white-space: nowrap;
-	vertical-align: middle;
 	border-radius: var(--rb-button-border-radius, $button-radius);
 	transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
