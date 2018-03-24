@@ -1,7 +1,7 @@
 /************
  * RB-BUTTON
  ************/
-import { Element as PolymerElement } from '../../../@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from '../../../@polymer/polymer/polymer-element.js';
 import { DomIf as DomIf } from '../../../@polymer/polymer/lib/elements/dom-if.js';
 import template from '../views/rb-button.html';
 
@@ -117,7 +117,7 @@ export class RbButton extends PolymerElement {
 	/* Template
 	 ***********/
 	static get template() { // :string
-		return template;
+		return html template;
 	}
 }
 
