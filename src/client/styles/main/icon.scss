@@ -46,3 +46,12 @@
 		}
 	}
 }
+
+&.text.with-icon {
+	&.icon-left {
+		rb-icon { margin-right: remy(5); }
+	}
+	&:not(.icon-left) {
+		rb-icon { margin-left: remy(5); }
+	}
+}

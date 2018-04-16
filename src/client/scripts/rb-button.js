@@ -11,14 +11,15 @@ export class RbButton extends PolymerElement {
 	constructor() {
 		super();
 	}
-
-	ready() {
-		super.ready();
-		const slot = this.root.querySelector('slot');
-		this.__hasContent = !!slot.assignedNodes().length;
-		slot.addEventListener('slotchange', e => {
-			this.__hasContent = !!slot.assignedNodes().length;
-		});
+	connectedCallback() {
+		super.connectedCallback();
+		if (!this._slot) this._slot = this.root.querySelector('slot');
+		this.__setHasContent();
+		this._attachEvents();
+	}
+	disconnectedCallback() {
+		super.disconnectedCallback();
+		this._detachEvents();
 	}
 
 	/* Properties
@@ -80,6 +81,35 @@ export class RbButton extends PolymerElement {
 		if(!icon) return null;
 		if(!position) return null;
 		return `icon-${position}`;
+	}
+
+	/* Event Management
+	 *******************/
+	_attachEvents() { // :void
+		this.__hasContentListner = this.__setHasContent.bind(this);
+		this._slot.addEventListener('slotchange', this.__hasContentListner);
+	}
+	_detachEvents() { // :void
+		this._slot.removeEventListener('slotchange', this.__hasContentListner);
+	}
+
+	/* Slot Event Handlers
+	 **********************/
+	_trimSlot() { // :void (mutator: slot.textContent)
+		for (let child of this._slot.assignedNodes()) {
+			if (child.nodeType !== 3) continue;
+			child.textContent = child.textContent.trim();
+		}
+	}
+	__setHasContent() { // :void
+		this._trimSlot();
+		let hasContent = false;
+		for (let child of this._slot.assignedNodes()) {
+			if (child.nodeType !== 3) continue;
+			if (!child.textContent.length) continue;
+			hasContent = true; break;
+		}
+		this.__hasContent = hasContent;
 	}
 
 	/* Form Actions
