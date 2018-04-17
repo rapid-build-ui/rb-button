@@ -48,6 +48,7 @@
 }
 
 &.text.with-icon {
+	rb-icon { top: 0; }
 	&.icon-left {
 		rb-icon { margin-right: remy(5); }
 	}
