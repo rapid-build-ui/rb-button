@@ -1,7 +1,7 @@
 {
 	"name": "rb-button-server",
-	"version": "0.0.0",
-	"description": "Rapid Build UI - Component Server: rb-button",
+	"version": "0.0.1",
+	"description": "Rapid Build UI Web Component Server: rb-button",
 	"license": "MIT",
 	"engines": {
 		"npm": "5.x",

@@ -3,6 +3,7 @@
  ************/
 import { PolymerElement, html } from '../../../@polymer/polymer/polymer-element.js';
 import { DomIf as DomIf } from '../../../@polymer/polymer/lib/elements/dom-if.js';
+import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-button.html';
 
 export class RbButton extends PolymerElement {
