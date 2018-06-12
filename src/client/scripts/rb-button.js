@@ -97,9 +97,14 @@ export class RbButton extends PolymerElement {
 	/* Slot Event Handlers
 	 **********************/
 	_trimSlot() { // :void (mutator: slot.textContent)
+		const rx = /\S/; // single character other than white space
 		for (let child of this._slot.assignedNodes()) {
 			if (child.nodeType !== 3) continue;
-			child.textContent = child.textContent.trim();
+			const text = child.textContent;
+			if (!text) continue;
+			const trimmed = rx.test(text[0]) && rx.test(text.slice(-1));
+			if (trimmed) continue;
+			child.textContent = text.trim();
 		}
 	}
 	__setHasContent() { // :void
