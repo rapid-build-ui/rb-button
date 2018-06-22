@@ -1,3 +1,12 @@
+## [0.0.4](https://github.com/rapid-build-ui/rb-button/compare/v0.0.3...v0.0.4) (2018-06-22)
+
+
+### Features
+
+* **bump:** dep [@rapid-build-ui](https://github.com/rapid-build-ui)/rb-icon to v0.0.3 ([bdaa9ab](https://github.com/rapid-build-ui/rb-button/commit/bdaa9ab))
+
+
+
 ## 0.0.3 (2018-06-22)
 
 
