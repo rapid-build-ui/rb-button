@@ -1,104 +1,42 @@
 /************
  * RB-BUTTON
  ************/
-import { PolymerElement, html } from '../../../@polymer/polymer/polymer-element.js';
-import { DomIf as DomIf } from '../../../@polymer/polymer/lib/elements/dom-if.js';
+import { props, withComponent } from '../../../skatejs/dist/esnext/index.js';
+import { html, withRenderer } from './renderer.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-button.html';
 
-export class RbButton extends PolymerElement {
-	/* Lifecycle
-	 ************/
-	constructor() {
-		super();
-	}
-	connectedCallback() {
-		super.connectedCallback();
-		if (!this._slot) this._slot = this.root.querySelector('slot');
-		this.__setHasContent();
-		this._attachEvents();
-	}
-	disconnectedCallback() {
-		super.disconnectedCallback();
-		this._detachEvents();
-	}
-
+export class RbButton extends withComponent(withRenderer()) {
 	/* Properties
 	 *************/
-	static get properties() {
+	static get props() {
 		return {
-			disabled: {
-				type: Boolean,
-				value: false
-			},
-			kind: {
-				type: String,
-				value: 'default'
-			},
-			size: {
-				type: String,
-			},
-			type: {
-				type: String,
-				value: 'button'
-			},
-			icon: {
-				type: String
-			},
-			iconSize: {
-				type: Number
-			},
-			iconSource: {
-				type: String
-			},
-			iconPosition: {
-				type: String
-			},
-			_form: { // computed props are read-only
-				type: Object,
-				computed: 'computeForm(type)'
-			}
+			disabled: props.boolean,
+			kind: Object.assign({}, props.string, {
+				default: 'default'
+			}),
+			size: props.string,
+			type: Object.assign({}, props.string, {
+				default: 'button'
+			}),
+			icon: props.string,
+			iconSize: props.number,
+			iconSource: props.string,
+			iconPosition: props.string
 		}
 	}
 
-	/* Computed Properties
-	 **********************/
-	computeForm(type) { // :element | null (for reset and submit)
-		if (type === 'button') return null;
-		return this.closest('form');
-	}
-
-	/* Computed Bindings
-	 ********************/
-	_hasContent(__hasContent) { // :string
-		if (!!__hasContent) return null;
-		return 'no-content';
-	}
-	_hasIcon(icon) { // :string
-		if(!icon) return null;
-		return 'with-icon';
-	}
-	_iconPosition(icon, position) { // :string
-		if(!icon) return null;
-		if(!position) return null;
-		return `icon-${position}`;
-	}
-
-	/* Event Management
-	 *******************/
-	_attachEvents() { // :void
-		this.__hasContentListner = this.__setHasContent.bind(this);
-		this._slot.addEventListener('slotchange', this.__hasContentListner);
-	}
-	_detachEvents() { // :void
-		this._slot.removeEventListener('slotchange', this.__hasContentListner);
+	/* Lifecycle
+	 ************/
+	connected() {
+		this._form = this.closest('form');
 	}
 
 	/* Slot Event Handlers
 	 **********************/
-	_trimSlot() { // :void (mutator: slot.textContent)
+	_trimSlot(slot) { // :void (mutator: slot.textContent)
 		const rx = /\S/; // single character other than white space
-		for (let child of this._slot.assignedNodes()) {
+		for (let child of slot.assignedNodes()) {
 			if (child.nodeType !== 3) continue;
 			const text = child.textContent;
 			if (!text) continue;
@@ -107,15 +45,17 @@ export class RbButton extends PolymerElement {
 			child.textContent = text.trim();
 		}
 	}
-	__setHasContent() { // :void
-		this._trimSlot();
+	_setHasContent(e) { // :void
+		const slot = e.currentTarget;
+		this._trimSlot(slot);
 		let hasContent = false;
-		for (let child of this._slot.assignedNodes()) {
+		for (let child of slot.assignedNodes()) {
 			if (child.nodeType !== 3) continue;
 			if (!child.textContent.length) continue;
 			hasContent = true; break;
 		}
-		this.__hasContent = hasContent;
+		this.state.hasContent = hasContent;
+		this.triggerUpdate();
 	}
 
 	/* Form Actions
@@ -126,12 +66,13 @@ export class RbButton extends PolymerElement {
 		this.dispatchEvent(event);
 	}
 	_reset(e) { // :void
-		if (!this._form) return
+		if (!this._form) return;
 		this._form.reset(); // new CustomEvent('reset') doesn't reset form
 	}
 	_submit(e) { // :void
 		var opts  = {}; // can pass data via opts.detail
 		var event = new CustomEvent('submit', opts); // not supported in ie
+		if (!this._form) return;
 		this._form.dispatchEvent(event); // doesn't do native browser submit
 	}
 
@@ -152,7 +93,7 @@ export class RbButton extends PolymerElement {
 
 	/* Template
 	 ***********/
-	static get template() { // :string
+	render({ props, state }) {
 		return html template;
 	}
 }

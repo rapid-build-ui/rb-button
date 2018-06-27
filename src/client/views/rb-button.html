@@ -1,16 +1,22 @@
 <button
-	type$="[[type]]"
-	on-click="_handleClick"
-	disabled$="[[disabled]]"
-	class$="[[kind]] [[size]] [[_hasContent(__hasContent)]] [[_hasIcon(icon)]] [[_iconPosition(icon, iconPosition)]]">
-	<slot></slot>
-	<template is="dom-if" if="{{icon}}">
+	type$="${props.type}"
+	disabled?="${props.disabled}"
+	on-click="${this._handleClick.bind(this)}"
+	class$="
+		${props.kind}
+		${props.size}
+		${!state.hasContent ? 'no-content': ''}
+		${props.icon ? 'with-icon' : ''}
+		${props.icon && props.iconPosition ? `icon-${props.iconPosition}` : ''}
+	">
+	<slot on-slotchange="${this._setHasContent.bind(this)}"></slot>
+	${!props.icon ? null : html`
 		<rb-icon
-			kind="[[icon]]"
-			size="[[iconSize]]"
-			source="[[iconSource]]">
+			kind$="${props.icon}"
+			size$="${props.iconSize}"
+			source$="${props.iconSource}">
 		</rb-icon>
-	</template>
+	`}
 </button>
 
 <link rel="stylesheet" href="../styles/rb-button.css">
