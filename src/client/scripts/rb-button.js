@@ -1,7 +1,7 @@
 /************
  * RB-BUTTON
  ************/
-import { props, withComponent } from '../../../skatejs/dist/esnext/index.js';
+import { props, withComponent, emit } from '../../../skatejs/dist/esnext/index.js';
 import { html, withRenderer } from './renderer.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-button.html';
@@ -30,6 +30,9 @@ export class RbButton extends withComponent(withRenderer()) {
 	 ************/
 	connected() {
 		this._form = this.closest('form');
+		setTimeout(() => { // (timeout to ensure template is rendered)
+			emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
+		});
 	}
 
 	/* Slot Event Handlers
