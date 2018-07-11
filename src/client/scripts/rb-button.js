@@ -3,10 +3,23 @@
  ************/
 import { props, withComponent, emit } from '../../../skatejs/dist/esnext/index.js';
 import { html, withRenderer } from './renderer.js';
+import EventService from './event-service.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-button.html';
 
 export class RbButton extends withComponent(withRenderer()) {
+	/* Lifecycle
+	 ************/
+	constructor() {
+		super();
+		this.rbEvent = EventService.call(this);
+	}
+	viewReady() {
+		super.viewReady && super.viewReady();
+		this._form = this.closest('form');
+		this.rbEvent.emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
+	}
+
 	/* Properties
 	 *************/
 	static get props() {
@@ -24,15 +37,6 @@ export class RbButton extends withComponent(withRenderer()) {
 			iconSource: props.string,
 			iconPosition: props.string
 		}
-	}
-
-	/* Lifecycle
-	 ************/
-	connected() {
-		this._form = this.closest('form');
-		setTimeout(() => { // (timeout to ensure template is rendered)
-			emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
-		});
 	}
 
 	/* Slot Event Handlers
@@ -57,8 +61,9 @@ export class RbButton extends withComponent(withRenderer()) {
 			if (!child.textContent.length) continue;
 			hasContent = true; break;
 		}
-		this.state.hasContent = hasContent;
-		this.triggerUpdate();
+		const action = hasContent ? 'remove' : 'add';
+		// e.composedPath()[1] = button
+		e.composedPath()[1].classList[action]('no-content');
 	}
 
 	/* Form Actions
@@ -96,7 +101,7 @@ export class RbButton extends withComponent(withRenderer()) {
 
 	/* Template
 	 ***********/
-	render({ props, state }) {
+	render({ props }) {
 		return html template;
 	}
 }
