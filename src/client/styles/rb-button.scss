@@ -5,6 +5,9 @@
 @import 'sass/functions.scss';
 @import 'sass/variables.scss';
 
+// Host
+@import 'main/host.scss';
+
 // The Component
 button {
 	@import 'main/common.scss';
