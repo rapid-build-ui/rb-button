@@ -1,3 +1,12 @@
+## [0.0.7](https://github.com/rapid-build-ui/rb-button/compare/v0.0.6...v0.0.7) (2018-07-18)
+
+
+### Features
+
+* **display:** set its css host display to inline-block like default html button ([3e14ba7](https://github.com/rapid-build-ui/rb-button/commit/3e14ba7))
+
+
+
 ## [0.0.6](https://github.com/rapid-build-ui/rb-button/compare/v0.0.5...v0.0.6) (2018-07-11)
 
 
