@@ -1,23 +1,17 @@
 /************
  * RB-BUTTON
  ************/
-import { props, withComponent, emit } from '../../../skatejs/dist/esnext/index.js';
-import { html, withRenderer } from './renderer.js';
-import EventService from './event-service.js';
+import { props, html, RbBase } from '../../rb-base/scripts/rb-base.js';
 import '../../rb-icon/scripts/rb-icon.js';
 import template from '../views/rb-button.html';
 
-export class RbButton extends withComponent(withRenderer()) {
+export class RbButton extends RbBase() {
 	/* Lifecycle
 	 ************/
-	constructor() {
-		super();
-		this.rbEvent = EventService.call(this);
-	}
 	viewReady() {
 		super.viewReady && super.viewReady();
 		this._form = this.closest('form');
-		this.rbEvent.emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
+		this.rb.events.emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
 	}
 
 	/* Properties
@@ -69,19 +63,15 @@ export class RbButton extends withComponent(withRenderer()) {
 	/* Form Actions
 	 ***************/
 	_click(e) { // :void
-		var opts = {}
-		var event = new CustomEvent('clicked', opts);
-		this.dispatchEvent(event);
+		this.rb.events.emit(this, 'clicked');
 	}
 	_reset(e) { // :void
 		if (!this._form) return;
 		this._form.reset(); // new CustomEvent('reset') doesn't reset form
 	}
 	_submit(e) { // :void
-		var opts  = {}; // can pass data via opts.detail
-		var event = new CustomEvent('submit', opts); // not supported in ie
 		if (!this._form) return;
-		this._form.dispatchEvent(event); // doesn't do native browser submit
+		this.rb.events.emit(this._form, 'submit'); // TODO: fix, doesn't do native browser submit
 	}
 
 	/* Event Handlers
