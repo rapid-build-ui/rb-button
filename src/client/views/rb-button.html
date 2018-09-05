@@ -1,20 +1,20 @@
 <button
-	type$="${props.type}"
-	disabled?="${props.disabled}"
-	on-click="${this._handleClick.bind(this)}"
-	class$="
+	type="${props.type}"
+	?disabled="${props.disabled}"
+	@click="${this._handleClick.bind(this)}"
+	class="
 		${props.kind}
 		${props.size}
 		${props.icon ? 'with-icon' : ''}
 		${props.icon && props.iconPosition ? `icon-${props.iconPosition}` : ''}
 		no-content
 	">
-	<slot on-slotchange="${this._setHasContent.bind(this)}"></slot>
+	<slot @slotchange="${this._setHasContent.bind(this)}"></slot>
 	${!props.icon ? null : html`
 		<rb-icon
-			kind$="${props.icon}"
-			size$="${props.iconSize}"
-			source$="${props.iconSource}">
+			kind="${props.icon}"
+			size="${props.iconSize}"
+			source="${props.iconSource}">
 		</rb-icon>
 	`}
 </button>
