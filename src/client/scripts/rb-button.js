@@ -10,9 +10,7 @@ export class RbButton extends RbBase() {
 	 ************/
 	connectedCallback() { // :void
 		super.connectedCallback && super.connectedCallback();
-		this.elms = {
-			form: this.closest('form')
-		}
+		this.rb.elms.form = this.closest('form');
 		this._addHiddenInput();
 	}
 	disconnectedCallback() { // :void
@@ -46,7 +44,7 @@ export class RbButton extends RbBase() {
 	/* Getters
 	 **********/
 	get hasForm() { // :boolean (readonly: true if inside form)
-		return !!this.elms.form;
+		return !!this.rb.elms.form;
 	}
 	get isResetOrSubmit() { // :boolean (readonly)
 		if (this.type === 'reset') return true;
@@ -59,15 +57,15 @@ export class RbButton extends RbBase() {
 	_addHiddenInput() { // :void (required to do native browser submit)
 		if (!this.hasForm) return;
 		if (!this.isResetOrSubmit) return;
-		this.elms.hiddenInput = document.createElement('input');
-		this.elms.hiddenInput.setAttribute('type', this.type);
-		this.elms.hiddenInput.style.cssText = 'display: none !important';
-		this.elms.form.appendChild(this.elms.hiddenInput);
+		this.rb.elms.hiddenInput = document.createElement('input');
+		this.rb.elms.hiddenInput.setAttribute('type', this.type);
+		this.rb.elms.hiddenInput.style.cssText = 'display: none !important';
+		this.rb.elms.form.appendChild(this.rb.elms.hiddenInput);
 	}
 	_removeHiddenInput() { // :void
 		if (!this.hasForm) return;
 		if (!this.isResetOrSubmit) return;
-		this.elms.hiddenInput.remove();
+		this.rb.elms.hiddenInput.remove();
 	}
 
 	/* Slot Event Handlers
@@ -104,11 +102,11 @@ export class RbButton extends RbBase() {
 	}
 	_reset(e) { // :void
 		if (!this.hasForm) return;
-		this.elms.hiddenInput.click();
+		this.rb.elms.hiddenInput.click();
 	}
 	_submit(e) { // :void
 		if (!this.hasForm) return;
-		this.elms.hiddenInput.click();
+		this.rb.elms.hiddenInput.click();
 	}
 
 	/* Event Handlers
