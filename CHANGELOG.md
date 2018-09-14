@@ -1,3 +1,19 @@
+## [0.0.10](https://github.com/rapid-build-ui/rb-button/compare/v0.0.9...v0.0.10) (2018-09-14)
+
+
+### Features
+
+* **submit:** add native browser submit support ([979a32e](https://github.com/rapid-build-ui/rb-button/commit/979a32e))
+
+
+### Dependency Updates
+
+* **bump deps:** ([cfee9d6](https://github.com/rapid-build-ui/rb-button/commit/cfee9d6))
+	* **rb-base** to v0.0.3
+	* **rb-icon** to v0.0.8
+
+
+
 ## [0.0.9](https://github.com/rapid-build-ui/rb-button/compare/v0.0.8...v0.0.9) (2018-09-05)
 
 
