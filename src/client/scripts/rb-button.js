@@ -8,9 +8,17 @@ import template from '../views/rb-button.html';
 export class RbButton extends RbBase() {
 	/* Lifecycle
 	 ************/
+	connectedCallback() { // :void
+		super.connectedCallback && super.connectedCallback();
+		this.rb.elms.form = this.closest('form');
+		this._addHiddenInput();
+	}
+	disconnectedCallback() { // :void
+		super.disconnectedCallback && super.disconnectedCallback();
+		this._removeHiddenInput();
+	}
 	viewReady() {
 		super.viewReady && super.viewReady();
-		this._form = this.closest('form');
 		this.rb.events.emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
 	}
 
@@ -31,6 +39,33 @@ export class RbButton extends RbBase() {
 			iconSource: props.string,
 			iconPosition: props.string
 		}
+	}
+
+	/* Getters
+	 **********/
+	get hasForm() { // :boolean (readonly: true if inside form)
+		return !!this.rb.elms.form;
+	}
+	get isResetOrSubmit() { // :boolean (readonly)
+		if (this.type === 'reset') return true;
+		if (this.type === 'submit') return true;
+		return false;
+	}
+
+	/* Private Methods
+	 ******************/
+	_addHiddenInput() { // :void (required to do native browser submit)
+		if (!this.hasForm) return;
+		if (!this.isResetOrSubmit) return;
+		this.rb.elms.hiddenInput = document.createElement('input');
+		this.rb.elms.hiddenInput.setAttribute('type', this.type);
+		this.rb.elms.hiddenInput.style.cssText = 'display: none !important';
+		this.rb.elms.form.appendChild(this.rb.elms.hiddenInput);
+	}
+	_removeHiddenInput() { // :void
+		if (!this.hasForm) return;
+		if (!this.isResetOrSubmit) return;
+		this.rb.elms.hiddenInput.remove();
 	}
 
 	/* Slot Event Handlers
@@ -66,12 +101,12 @@ export class RbButton extends RbBase() {
 		this.rb.events.emit(this, 'clicked');
 	}
 	_reset(e) { // :void
-		if (!this._form) return;
-		this._form.reset(); // new CustomEvent('reset') doesn't reset form
+		if (!this.hasForm) return;
+		this.rb.elms.hiddenInput.click();
 	}
 	_submit(e) { // :void
-		if (!this._form) return;
-		this.rb.events.emit(this._form, 'submit'); // TODO: fix, doesn't do native browser submit
+		if (!this.hasForm) return;
+		this.rb.elms.hiddenInput.click();
 	}
 
 	/* Event Handlers
