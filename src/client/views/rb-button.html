@@ -5,14 +5,14 @@
 	class="
 		${props.kind}
 		${props.size}
-		${props.icon ? 'with-icon' : ''}
-		${props.icon && props.iconPosition ? `icon-${props.iconPosition}` : ''}
+		${props.iconKind ? 'with-icon' : ''}
+		${props.iconKind && props.iconPosition ? `icon-${props.iconPosition}` : ''}
 		no-content
 	">
 	<slot @slotchange="${this._setHasContent.bind(this)}"></slot>
-	${!props.icon ? null : html`
+	${!props.iconKind ? null : html`
 		<rb-icon
-			kind="${props.icon}"
+			kind="${props.iconKind}"
 			size="${props.iconSize}"
 			source="${props.iconSource}">
 		</rb-icon>

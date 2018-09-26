@@ -34,7 +34,7 @@ export class RbButton extends RbBase() {
 			type: Object.assign({}, props.string, {
 				default: 'button'
 			}),
-			icon: props.string,
+			iconKind: props.string,
 			iconSize: props.number,
 			iconSource: props.string,
 			iconPosition: props.string
