@@ -1,6 +1,6 @@
 {
   "name": "@rapid-build-ui/rb-button",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "main": "scripts/rb-button.js",
   "description": "Rapid Build UI Web Component: rb-button",
   "license": "MIT",
