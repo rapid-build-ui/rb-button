@@ -1,0 +1,56 @@
+/**********************
+ * RB-BUTTON VARIABLES
+ **********************/
+:host {
+	// common
+	--border-radius: var(--rb-button-border-radius, 4px);
+
+	// bg-color
+	--default-bg-color: var(--rb-button-default-bg-color, #007bff);
+	--danger-bg-color:  var(--rb-button-danger-bg-color,  #dc3545);
+	--info-bg-color:    var(--rb-button-info-bg-color,    #17a2b8);
+	--success-bg-color: var(--rb-button-success-bg-color, #28a745);
+	--warning-bg-color: var(--rb-button-warning-bg-color, #ffc107);
+
+	// bg-color active
+	--default-active-bg-color: var(--rb-button-default-active-bg-color, #0062cc);
+	--danger-active-bg-color:  var(--rb-button-danger-active-bg-color,  #bd2130);
+	--info-active-bg-color:    var(--rb-button-info-active-bg-color,    #117a8b);
+	--success-active-bg-color: var(--rb-button-success-active-bg-color, #1e7e34);
+	--warning-active-bg-color: var(--rb-button-warning-active-bg-color, #d39e00);
+
+	// bg-color hover
+	--default-hover-bg-color: var(--rb-button-default-hover-bg-color, #0069d9);
+	--danger-hover-bg-color:  var(--rb-button-danger-hover-bg-color,  #c82333);
+	--info-hover-bg-color:    var(--rb-button-info-hover-bg-color,    #138496);
+	--success-hover-bg-color: var(--rb-button-success-hover-bg-color, #218838);
+	--warning-hover-bg-color: var(--rb-button-warning-hover-bg-color, #e0a800);
+
+	// border-color
+	--default-border-color: var(--rb-button-default-border-color, #007bff);
+	--danger-border-color:  var(--rb-button-danger-border-color,  #dc3545);
+	--info-border-color:    var(--rb-button-info-border-color,    #17a2b8);
+	--success-border-color: var(--rb-button-success-border-color, #28a745);
+	--warning-border-color: var(--rb-button-warning-border-color, #ffc107);
+
+	// border-color active
+	--default-active-border-color: var(--rb-button-default-active-border-color, #005cbf);
+	--danger-active-border-color:  var(--rb-button-danger-active-border-color,  #b21f2d);
+	--info-active-border-color:    var(--rb-button-info-active-border-color,    #10707f);
+	--success-active-border-color: var(--rb-button-success-active-border-color, #1c7430);
+	--warning-active-border-color: var(--rb-button-warning-active-border-color, #c69500);
+
+	// border-color hover
+	--default-hover-border-color: var(--rb-button-default-hover-border-color, #0062cc);
+	--danger-hover-border-color:  var(--rb-button-danger-hover-border-color,  #bd2130);
+	--info-hover-border-color:    var(--rb-button-info-hover-border-color,    #117a8b);
+	--success-hover-border-color: var(--rb-button-success-hover-border-color, #1e7e34);
+	--warning-hover-border-color: var(--rb-button-warning-hover-border-color, #d39e00);
+
+	// color
+	--default-color: var(--rb-button-default-color, white);
+	--danger-color:  var(--rb-button-danger-color,  white);
+	--info-color:    var(--rb-button-info-color,    white);
+	--success-color: var(--rb-button-success-color, white);
+	--warning-color: var(--rb-button-warning-color, #212529);
+}
