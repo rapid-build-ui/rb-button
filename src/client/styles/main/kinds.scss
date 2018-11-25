@@ -5,7 +5,6 @@
 	border-color: var(--default-border-color);
 	background-color: var(--default-bg-color);
 	color: var(--default-color);
-
 	&:hover:not(:disabled) {
 		background-color: var(--default-hover-bg-color);
 		border-color: var(--default-hover-border-color);
@@ -13,9 +12,6 @@
 	&:active:not(:disabled) {
 		background-color: var(--default-active-bg-color);
 		border-color: var(--default-active-border-color);
-	}
-	&:focus {
-		box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
 	}
 }
 &.danger {
@@ -30,9 +26,6 @@
 		background-color: var(--danger-active-bg-color);
 		border-color: var(--danger-active-border-color);
 	}
-	&:focus {
-		box-shadow: 0 0 0 0.2rem rgba(220,53,69,.5);
-	}
 }
 &.info {
 	background-color: var(--info-bg-color);
@@ -45,9 +38,6 @@
 	&:active:not(:disabled) {
 		background-color: var(--info-active-bg-color);
 		border-color: var(--info-active-border-color);
-	}
-	&:focus {
-		box-shadow: 0 0 0 0.2rem rgba(23,162,184,.5);
 	}
 }
 &.success {
@@ -62,9 +52,6 @@
 		background-color: var(--success-active-bg-color);
 		border-color: var(--success-active-border-color);
 	}
-	&:focus {
-		box-shadow: 0 0 0 0.2rem rgba(40,167,69,.5);
-	}
 }
 &.warning {
 	background-color: var(--warning-bg-color);
@@ -77,9 +64,6 @@
 	&:active:not(:disabled) {
 		background-color: var(--warning-active-bg-color);
 		border-color: var(--warning-active-border-color);
-	}
-	&:focus {
-		box-shadow: 0 0 0 0.2rem rgba(255,193,7,.5);
 	}
 }
 &.text {
