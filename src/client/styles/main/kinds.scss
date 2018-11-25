@@ -14,6 +14,19 @@
 		border-color: var(--default-active-border-color);
 	}
 }
+&.secondary {
+	border-color: var(--secondary-border-color);
+	background-color: var(--secondary-bg-color);
+	color: var(--secondary-color);
+	&:hover:not(:disabled) {
+		background-color: var(--secondary-hover-bg-color);
+		border-color: var(--secondary-hover-border-color);
+	}
+	&:active:not(:disabled) {
+		background-color: var(--secondary-active-bg-color);
+		border-color: var(--secondary-active-border-color);
+	}
+}
 &.danger {
 	background-color: var(--danger-bg-color);
 	border-color: var(--danger-border-color);
