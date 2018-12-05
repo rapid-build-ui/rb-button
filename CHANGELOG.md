@@ -1,3 +1,20 @@
+## [0.0.13](https://github.com/rapid-build-ui/rb-button/compare/v0.0.12...v0.0.13) (2018-12-05)
+
+
+### Features
+
+* **bump:** deps rb-base v0.0.6 and rb-icon v0.0.11 ([2539039](https://github.com/rapid-build-ui/rb-button/commit/2539039))
+* **css variables:** add and expose them ([2a9c733](https://github.com/rapid-build-ui/rb-button/commit/2a9c733))
+* **hidden attribute:** display style that respects the hidden attribute ([b7e34c8](https://github.com/rapid-build-ui/rb-button/commit/b7e34c8))
+* **new kind:** secondary ([08f5b81](https://github.com/rapid-build-ui/rb-button/commit/08f5b81))
+
+
+### Performance Improvements
+
+* **css:** improve browser performance by adding css contain property ([d49039a](https://github.com/rapid-build-ui/rb-button/commit/d49039a))
+
+
+
 ## [0.0.12](https://github.com/rapid-build-ui/rb-button/compare/v0.0.11...v0.0.12) (2018-11-13)
 
 
