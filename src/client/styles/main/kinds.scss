@@ -5,7 +5,8 @@
 	border-color: var(--default-border-color);
 	background-color: var(--default-bg-color);
 	color: var(--default-color);
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus:not(:disabled) {
 		background-color: var(--default-hover-bg-color);
 		border-color: var(--default-hover-border-color);
 	}
@@ -18,7 +19,8 @@
 	border-color: var(--secondary-border-color);
 	background-color: var(--secondary-bg-color);
 	color: var(--secondary-color);
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus:not(:disabled) {
 		background-color: var(--secondary-hover-bg-color);
 		border-color: var(--secondary-hover-border-color);
 	}
@@ -31,7 +33,8 @@
 	background-color: var(--danger-bg-color);
 	border-color: var(--danger-border-color);
 	color: var(--danger-color);
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus:not(:disabled) {
 		background-color: var(--danger-hover-bg-color);
 		border-color: var(--danger-hover-border-color);
 	}
@@ -44,7 +47,8 @@
 	background-color: var(--info-bg-color);
 	border-color: var(--info-border-color);
 	color: var(--info-color);
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus:not(:disabled) {
 		background-color: var(--info-hover-bg-color);
 		border-color: var(--info-hover-border-color);
 	}
@@ -57,7 +61,8 @@
 	background-color: var(--success-bg-color);
 	border-color: var(--success-border-color);
 	color: var(--success-color);
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus:not(:disabled) {
 		background-color: var(--success-hover-bg-color);
 		border-color: var(--success-hover-border-color);
 	}
@@ -70,7 +75,8 @@
 	background-color: var(--warning-bg-color);
 	border-color: var(--warning-border-color);
 	color: var(--warning-color);
-	&:hover:not(:disabled) {
+	&:hover:not(:disabled),
+	&:focus:not(:disabled) {
 		background-color: var(--warning-hover-bg-color);
 		border-color: var(--warning-hover-border-color);
 	}
