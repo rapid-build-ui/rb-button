@@ -20,6 +20,10 @@
 
 &.with-icon {
 	rb-icon { top: remy(1); }
+	&.text { rb-icon { top: 0; } }
+}
+
+&.with-icon {
 	&.big {
 		&.icon-left {
 			rb-icon { right: remy(2); }

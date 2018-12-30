@@ -14,7 +14,8 @@
 		<rb-icon
 			kind="${props.iconKind}"
 			size="${props.iconSize}"
-			source="${props.iconSource}">
+			source="${props.iconSource}"
+			valign="${view.ifDefined(props.iconValign || undefined)}">
 		</rb-icon>
 	`}
 </button>
