@@ -1,10 +1,10 @@
 /************
  * RB-BUTTON
  ************/
-import { props, html, RbBase } from '../../rb-base/scripts/rb-base.js';
-import view from '../../rb-base/scripts/view-directives.js';
+import { RbBase, props, html } from '../../rb-base/scripts/rb-base.js';
+import view                    from '../../rb-base/scripts/public/view/directives.js';
+import template                from '../views/rb-button.html';
 import '../../rb-icon/scripts/rb-icon.js';
-import template from '../views/rb-button.html';
 
 export class RbButton extends RbBase() {
 	/* Lifecycle
