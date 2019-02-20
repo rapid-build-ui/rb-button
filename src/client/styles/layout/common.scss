@@ -1,7 +1,7 @@
 /*********
  * COMMON
  *********/
-& {
+button {
 	display: inline-flex;
 	margin: 0;
 	outline: none;
@@ -9,6 +9,5 @@
 	border: 1px solid;
 	text-align: center;
 	white-space: nowrap;
-	border-radius: var(--border-radius);
 	transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }

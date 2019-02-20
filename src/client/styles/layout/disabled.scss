@@ -1,7 +1,7 @@
 /***********
  * DISABLED
  ***********/
-&:disabled {
+button:disabled {
 	opacity: .65;
 	cursor: default;
 }

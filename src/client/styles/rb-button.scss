@@ -2,14 +2,22 @@
  * RB-BUTTON STYLES - IN ORDER!
  *******************************/
 @import 'sass/functions.scss';
-@import 'main/variables.scss';
-@import 'main/host.scss';
 
-// The Component
-button {
-	@import 'main/common.scss';
-	@import 'main/sizes.scss';
-	@import 'main/icon.scss';
-	@import 'main/disabled.scss';
-	@import 'main/kinds.scss';
-}
+/* Layout
+ *********/
+@import 'layout/host.scss';
+@import 'layout/common.scss';
+@import 'layout/sizes.scss';
+@import 'layout/icon.scss';
+@import 'layout/disabled.scss';
+@import 'layout/kinds.scss';
+
+/* CSS Style Variables
+ **********************/
+@import 'sass/palette.scss';
+@import 'variables/common.scss';
+@import 'sass/css-vars.scss';
+
+/* Styles
+ *********/
+@import 'style/common.scss';

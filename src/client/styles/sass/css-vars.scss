@@ -1,0 +1,7 @@
+/********************
+ * CSS VARIABLES MAP
+ ********************/
+$component: 'rb-button';
+$vars: (
+	common: getCssVarsMap($component, $commonCssVars)
+);
