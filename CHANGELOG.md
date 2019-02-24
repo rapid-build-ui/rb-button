@@ -1,3 +1,24 @@
+## [0.0.14](https://github.com/rapid-build-ui/rb-button/compare/v0.0.13...v0.0.14) (2019-02-24)
+
+
+### Bug Fixes
+
+* **chrome v71.0.3+:** vertical alignment issue when nested in other components ([da2f85e](https://github.com/rapid-build-ui/rb-button/commit/da2f85e))
+* **icon:** from partially getting cut off in some scenarios ([ef399fb](https://github.com/rapid-build-ui/rb-button/commit/ef399fb))
+* **safari:** extra space due to browser default margin ([73d10af](https://github.com/rapid-build-ui/rb-button/commit/73d10af))
+
+
+### Features
+
+* **new api option:** icon-valign ([209cbea](https://github.com/rapid-build-ui/rb-button/commit/209cbea))
+
+
+### Dependencies
+
+* **bump:** deps rb-base v0.0.7 and rb-icon v0.0.12 ([cb9acad](https://github.com/rapid-build-ui/rb-button/commit/cb9acad))
+
+
+
 ## [0.0.13](https://github.com/rapid-build-ui/rb-button/compare/v0.0.12...v0.0.13) (2018-12-05)
 
 
