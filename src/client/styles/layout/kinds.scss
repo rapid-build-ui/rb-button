@@ -1,0 +1,14 @@
+/********
+ * KINDS
+ ********/
+button {
+	&.text {
+		padding: inherit;
+		min-height: inherit;
+		border: inherit;
+		color: inherit;
+		font-size: inherit;
+		line-height: inherit;
+		background-color: transparent;
+	}
+}

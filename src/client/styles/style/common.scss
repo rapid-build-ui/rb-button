@@ -1,0 +1,30 @@
+/********************************************
+ * COMMON STYLES (for light and dark themes)
+ ********************************************/
+@mixin setCommonStyles() {
+	// Common For All Kinds (root tag)
+	button {
+		border-radius: mapGet($vars, common, border-radius);
+	}
+
+	// Kinds
+	$kinds: default, danger, info, success, secondary, warning;
+	@each $kind in $kinds {
+		.#{$kind} {
+			background-color: mapGet($vars, common, #{$kind}-bg);
+			border-color: mapGet($vars, common, #{$kind}-border-color);
+			color: mapGet($vars, common, #{$kind}-text-color);
+			&:hover:not(:disabled),
+			&:focus:not(:disabled) {
+				background-color: mapGet($vars, common, #{$kind}-bg-hover);
+				border-color: mapGet($vars, common, #{$kind}-border-color-hover);
+			}
+			&:active:not(:disabled) {
+				background-color: mapGet($vars, common, #{$kind}-bg-active);
+				border-color: mapGet($vars, common, #{$kind}-border-color-active);
+			}
+		}
+	}
+}
+
+@include setCommonStyles();

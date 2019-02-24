@@ -1,0 +1,60 @@
+/*****************************************
+ * COMMON CSS VARIABLES
+ * Applies to both light and dark themes.
+ *****************************************/
+$commonCssVars: (
+	// Borders (common for all kinds)
+	border-radius: 4px,
+
+	// Background Colors
+	default-bg:          mapGet($palette, blue),
+	danger-bg:           mapGet($palette, red),
+	info-bg:             mapGet($palette, turquois),
+	secondary-bg:        mapGet($palette, grey),
+	success-bg:          mapGet($palette, green),
+	warning-bg:          mapGet($palette, yellow),
+
+	default-bg-hover:    mapGet($palette, blueDark),
+	danger-bg-hover:     mapGet($palette, redDark),
+	info-bg-hover:       mapGet($palette, turquoisDark),
+	secondary-bg-hover:  mapGet($palette, greyDark),
+	success-bg-hover:    mapGet($palette, greenDark),
+	warning-bg-hover:    mapGet($palette, yellowDark),
+
+	default-bg-active:   mapGet($palette, xBlueDark),
+	danger-bg-active:    mapGet($palette, xRedDark),
+	info-bg-active:      mapGet($palette, xTurquoisDark),
+	secondary-bg-active: mapGet($palette, xGreyDark),
+	success-bg-active:   mapGet($palette, xGreenDark),
+	warning-bg-active:   mapGet($palette, xYellowDark),
+
+	// Border Colors
+	default-border-color:          mapGet($palette, blue),
+	danger-border-color:           mapGet($palette, red),
+	info-border-color:             mapGet($palette, turquois),
+	secondary-border-color:        mapGet($palette, grey),
+	success-border-color:          mapGet($palette, green),
+	warning-border-color:          mapGet($palette, yellow),
+
+	default-border-color-hover:    mapGet($palette, xBlueDark),
+	danger-border-color-hover:     mapGet($palette, xRedDark),
+	info-border-color-hover:       mapGet($palette, xTurquoisDark),
+	secondary-border-color-hover:  mapGet($palette, xGreyDark),
+	success-border-color-hover:    mapGet($palette, xGreenDark),
+	warning-border-color-hover:    mapGet($palette, xYellowDark),
+
+	default-border-color-active:   mapGet($palette, xxBlueDark),
+	danger-border-color-active:    mapGet($palette, xxRedDark),
+	info-border-color-active:      mapGet($palette, xxTurquoisDark),
+	secondary-border-color-active: mapGet($palette, xxGreyDark),
+	success-border-color-active:   mapGet($palette, xxGreenDark),
+	warning-border-color-active:   mapGet($palette, xxYellowDark),
+
+	// Colors
+	default-text-color:   mapGet($palette, white),
+	danger-text-color:    mapGet($palette, white),
+	info-text-color:      mapGet($palette, white),
+	secondary-text-color: mapGet($palette, white),
+	success-text-color:   mapGet($palette, white),
+	warning-text-color:   mapGet($palette, dark)
+);

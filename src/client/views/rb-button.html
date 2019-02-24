@@ -13,8 +13,9 @@
 	${!props.iconKind ? null : html`
 		<rb-icon
 			kind="${props.iconKind}"
-			size="${props.iconSize}"
-			source="${props.iconSource}">
+			source="${props.iconSource}"
+			size="${view.ifDefined(props.iconSize || undefined)}"
+			valign="${view.ifDefined(props.iconValign || undefined)}">
 		</rb-icon>
 	`}
 </button>
