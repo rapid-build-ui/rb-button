@@ -12,10 +12,16 @@
 	<slot @slotchange="${this._setHasContent.bind(this)}"></slot>
 	${!props.iconKind ? null : html`
 		<rb-icon
+			?burst="${props.iconBurst}"
+			?pulse="${props.iconPulse}"
+			?spin="${props.iconSpin}"
 			kind="${props.iconKind}"
-			source="${props.iconSource}"
-			size="${view.ifDefined(props.iconSize || undefined)}"
-			valign="${view.ifDefined(props.iconValign || undefined)}">
+			flip="${View.ifDefined(props.iconFlip || undefined)}"
+			size="${View.ifDefined(props.iconSize || undefined)}"
+			speed="${View.ifDefined(props.iconSpeed || undefined)}"
+			rotate="${View.ifDefined(props.iconRotate || undefined)}"
+			source="${View.ifDefined(props.iconSource || undefined)}"
+			valign="${View.ifDefined(props.iconValign || undefined)}">
 		</rb-icon>
 	`}
 </button>
