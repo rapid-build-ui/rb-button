@@ -2,7 +2,8 @@
  * RB-BUTTON
  ************/
 import { RbBase, props, html } from '../../rb-base/scripts/rb-base.js';
-import view                    from '../../rb-base/scripts/public/view/directives.js';
+import Converter               from '../../rb-base/scripts/public/props/converters.js';
+import View                    from '../../rb-base/scripts/public/view/directives.js';
 import template                from '../views/rb-button.html';
 import '../../rb-icon/scripts/rb-icon.js';
 
@@ -27,7 +28,9 @@ export class RbButton extends RbBase() {
 	 *************/
 	static get props() {
 		return {
-			disabled: props.boolean,
+			disabled: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			}),
 			kind: Object.assign({}, props.string, {
 				default: 'default'
 			}),
@@ -35,11 +38,23 @@ export class RbButton extends RbBase() {
 			type: Object.assign({}, props.string, {
 				default: 'button'
 			}),
+			iconFlip: props.string,
 			iconKind: props.string,
 			iconSize: props.number,
+			iconSpeed: props.number,
+			iconRotate: props.number,
 			iconSource: props.string,
 			iconValign: props.string,
-			iconPosition: props.string
+			iconPosition: props.string,
+			iconBurst: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			}),
+			iconPulse: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			}),
+			iconSpin: Object.assign({}, props.boolean, {
+				deserialize: Converter.valueless
+			})
 		}
 	}
 
