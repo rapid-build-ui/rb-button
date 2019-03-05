@@ -1,3 +1,17 @@
+## [0.0.15](https://github.com/rapid-build-ui/rb-button/compare/v0.0.14...v0.0.15) (2019-03-05)
+
+
+### Features
+
+* **icon animation:** add it via upgrading rb-icon to v0.0.13 ([e0d25d5](https://github.com/rapid-build-ui/rb-button/commit/e0d25d5))
+
+
+### Dependencies
+
+* **bump:** deps rb-base v0.0.8 and rb-icon v0.0.13 ([dc90e37](https://github.com/rapid-build-ui/rb-button/commit/dc90e37))
+
+
+
 ## [0.0.14](https://github.com/rapid-build-ui/rb-button/compare/v0.0.13...v0.0.14) (2019-02-24)
 
 
