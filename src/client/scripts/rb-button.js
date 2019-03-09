@@ -76,7 +76,8 @@ export class RbButton extends RbBase() {
 		if (!this.isResetOrSubmit) return;
 		this.rb.elms.hiddenInput = document.createElement('input');
 		this.rb.elms.hiddenInput.setAttribute('type', this.type);
-		this.rb.elms.hiddenInput.style.cssText = 'display: none !important';
+		this.rb.elms.hiddenInput.setAttribute('hidden', '');
+		this.rb.elms.hiddenInput.style.cssText = 'display: none !important'; // just in case
 		this.rb.elms.form.appendChild(this.rb.elms.hiddenInput);
 	}
 	_removeHiddenInput() { // :void
@@ -121,9 +122,13 @@ export class RbButton extends RbBase() {
 		if (!this.hasForm) return;
 		this.rb.elms.hiddenInput.click();
 	}
-	_submit(e) { // :void
+	async _submit(e) { // :void
 		if (!this.hasForm) return;
-		this.rb.elms.hiddenInput.click();
+		const { form } = this.rb.elms;
+		if (!form.rb) return this.rb.elms.hiddenInput.click();
+		await form.rb.validate(true);
+		if (!form.checkValidity()) return;
+		this.rb.elms.hiddenInput.click(); // submit form
 	}
 
 	/* Event Handlers
