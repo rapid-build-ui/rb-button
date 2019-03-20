@@ -3,11 +3,13 @@
 	?disabled="${props.disabled}"
 	@click="${this._handleClick.bind(this)}"
 	class="
+		no-content
 		${props.kind}
 		${props.size}
+		${props.text ? 'text' : ''}
 		${props.iconKind ? 'with-icon' : ''}
-		${props.iconKind && props.iconPosition ? `icon-${props.iconPosition}` : ''}
-		no-content
+		${props.iconKind ? props.iconRight ? 'icon-right' : 'icon-left' : ''}
+		${props.text && props.text.inherit === 'color' ? 'inherit-color' : ''}
 	">
 	<slot @slotchange="${this._setHasContent.bind(this)}"></slot>
 	${!props.iconKind ? null : html`

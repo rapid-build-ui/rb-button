@@ -10,40 +10,50 @@ $palette: (
 	xBlueDark:       #0062cc,
 	blueDark:        #0069d9,
 	blue:            #007bff,
+	blueLight:       #4682b4,
+	xBlueLight:      #58a0e8, // 89afcf | 58a0e8
 
 	// Greens
 	xxGreenDark:     #1c7430,
 	xGreenDark:      #1e7e34,
 	greenDark:       #218838,
 	green:           #28a745,
+	greenLight:      #89cf99,
 
 	// Greys
 	xxGreyDark:      #4e555b,
 	xGreyDark:       #545b62,
 	greyDark:        #5a6268,
 	grey:            #6c757d,
+	greyLight:       #919ba5,
+	xGreyLight:      #c1c8cf,
 
 	// Reds
 	xxRedDark:       #b21f2d,
 	xRedDark:        #bd2130,
 	redDark:         #c82333,
 	red:             #dc3545,
+	redLight:        #df4755,
+	xRedLight:       #ea8992,
 
 	// Turquoise
 	xxTurquoisDark:  #10707f,
 	xTurquoisDark:   #117a8b,
 	turquoisDark:    #138496,
 	turquois:        #17a2b8,
+	turquoisLight:   #80ccd8,
 
 	// Yellows
 	xxYellowDark:    #c69500,
 	xYellowDark:     #d39e00,
 	yellowDark:      #e0a800,
 	yellow:          #ffc107,
+	yellowLight:     #dfc573,
 
 	// Darks
 	dark:            #212529,
 
-	// White
+	// Naturals
+	black:           black,
 	white:           white
 );

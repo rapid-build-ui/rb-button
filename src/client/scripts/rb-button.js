@@ -42,10 +42,10 @@ export class RbButton extends RbBase() {
 			iconKind: props.string,
 			iconSize: props.number,
 			iconSpeed: props.number,
+			iconRight: props.boolean,
 			iconRotate: props.number,
 			iconSource: props.string,
 			iconValign: props.string,
-			iconPosition: props.string,
 			iconBurst: Object.assign({}, props.boolean, {
 				deserialize: Converter.valueless
 			}),
@@ -54,6 +54,19 @@ export class RbButton extends RbBase() {
 			}),
 			iconSpin: Object.assign({}, props.boolean, {
 				deserialize: Converter.valueless
+			}),
+			text: Object.assign({}, props.any, { // :boolean | object
+				deserialize(val) {
+					val = val.trim();
+					val = !val // valueless attr is empty string
+						? true
+						: /^true$/i.test(val) // :boolean
+							? true
+							: /^{[^]*}$/.test(val) // :object (options)
+								? JSON.parse(val)
+								: false;
+					return val;
+				}
 			})
 		}
 	}

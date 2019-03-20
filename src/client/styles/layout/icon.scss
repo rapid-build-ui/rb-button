@@ -16,48 +16,46 @@ button {
 	}
 
 	&.with-icon {
-		rb-icon { position: relative; }
-	}
-
-	&.with-icon {
-		rb-icon { top: remy(1); }
-		&.text { rb-icon { top: 0; } }
+		rb-icon {
+			position: relative;
+			top: 1px;
+		}
 	}
 
 	&.with-icon {
 		&.big {
 			&.icon-left {
-				rb-icon { right: remy(2); }
+				rb-icon { right: 2px; }
 			}
 			&:not(.icon-left) {
-				rb-icon { left: remy(2); }
+				rb-icon { left: 2px; }
 			}
 		}
 	}
 
 	&.with-icon:not(.no-content) {
 		&.icon-left {
-			rb-icon { margin-right: remy(8); }
+			rb-icon { margin-right: 5px; }
 		}
 		&:not(.icon-left) {
-			rb-icon { margin-left: remy(8); }
+			rb-icon { margin-left: 5px; }
 		}
 		&.small {
 			&.icon-left {
-				rb-icon { margin-right: remy(5); }
+				rb-icon { margin-right: 4px; }
 			}
 			&:not(.icon-left) {
-				rb-icon { margin-left: remy(5); }
+				rb-icon { margin-left: 4px; }
 			}
 		}
 	}
 
 	&.text.with-icon {
 		&.icon-left {
-			rb-icon { margin-right: remy(5); }
+			rb-icon { margin-right: 4px; }
 		}
 		&:not(.icon-left) {
-			rb-icon { margin-left: remy(5); }
+			rb-icon { margin-left: 4px; }
 		}
 	}
 }
