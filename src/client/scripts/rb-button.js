@@ -13,6 +13,15 @@ import '../../rb-icon/scripts/rb-icon.js';
 export class RbButton extends RbBase() {
 	/* Lifecycle
 	 ************/
+	constructor() { // :void
+		super();
+		this.rb.events.host.add(['click']);
+		// support for calling rb-button.click()
+		this.rb.events.add(this, 'click', evt => {
+			if (evt.composedPath()[0] !== this) return;
+			this.rb.elms.button.click();
+		});
+	}
 	connectedCallback() { // :void
 		super.connectedCallback && super.connectedCallback();
 		this.rb.elms.form = this.closest('form');
@@ -21,6 +30,13 @@ export class RbButton extends RbBase() {
 	disconnectedCallback() { // :void
 		super.disconnectedCallback && super.disconnectedCallback();
 		this._removeHiddenInput();
+	}
+	viewReady() {
+		super.viewReady && super.viewReady();
+		Object.assign(this.rb.elms, {
+			button: this.shadowRoot.querySelector('button')
+		});
+		this.rb.events.add(this.rb.elms.button, 'click', this._handleClick);
 	}
 
 	/* Properties
@@ -118,7 +134,10 @@ export class RbButton extends RbBase() {
 
 	/* Event Handlers
 	 *****************/
-	_handleClick(evt) { // :void
+	async _handleClick(evt) { // :void
+		if (this.rb.events.host.isPending(evt)) return; // if promise wait for it
+		const result = await this.rb.events.host.run(evt);
+
 		switch (this.type) {
 			case 'reset':
 				this._reset(evt);
