@@ -1,6 +1,9 @@
-/************
+/***************************************
  * RB-BUTTON
- ************/
+ * rb-icon in template twice to ensure
+ * proper spacing between icon and slot
+ * (could not get around it)
+ ***************************************/
 import { RbBase, props, html } from '../../rb-base/scripts/rb-base.js';
 import Converter               from '../../rb-base/scripts/public/props/converters.js';
 import View                    from '../../rb-base/scripts/public/view/directives.js';
@@ -18,10 +21,6 @@ export class RbButton extends RbBase() {
 	disconnectedCallback() { // :void
 		super.disconnectedCallback && super.disconnectedCallback();
 		this._removeHiddenInput();
-	}
-	viewReady() {
-		super.viewReady && super.viewReady();
-		this.rb.events.emit(this.shadowRoot.querySelector('slot'), 'slotchange'); // needed for safari
 	}
 
 	/* Properties
@@ -99,43 +98,16 @@ export class RbButton extends RbBase() {
 		this.rb.elms.hiddenInput.remove();
 	}
 
-	/* Slot Event Handlers
-	 **********************/
-	_trimSlot(slot) { // :void (mutator: slot.textContent)
-		const rx = /\S/; // single character other than white space
-		for (let child of slot.assignedNodes()) {
-			if (child.nodeType !== 3) continue;
-			const text = child.textContent;
-			if (!text) continue;
-			const trimmed = rx.test(text[0]) && rx.test(text.slice(-1));
-			if (trimmed) continue;
-			child.textContent = text.trim();
-		}
-	}
-	_setHasContent(e) { // :void
-		const slot = e.currentTarget;
-		this._trimSlot(slot);
-		let hasContent = false;
-		for (let child of slot.assignedNodes()) {
-			if (child.nodeType !== 3) continue;
-			if (!child.textContent.length) continue;
-			hasContent = true; break;
-		}
-		const action = hasContent ? 'remove' : 'add';
-		// e.composedPath()[1] = button
-		e.composedPath()[1].classList[action]('no-content');
-	}
-
 	/* Form Actions
 	 ***************/
-	_click(e) { // :void
+	_click(evt) { // :void
 		this.rb.events.emit(this, 'clicked');
 	}
-	_reset(e) { // :void
+	_reset(evt) { // :void
 		if (!this.hasForm) return;
 		this.rb.elms.hiddenInput.click();
 	}
-	async _submit(e) { // :void
+	async _submit(evt) { // :void
 		if (!this.hasForm) return;
 		const { form } = this.rb.elms;
 		if (!form.rb) return this.rb.elms.hiddenInput.click();
@@ -146,16 +118,16 @@ export class RbButton extends RbBase() {
 
 	/* Event Handlers
 	 *****************/
-	_handleClick(e) { // :void
+	_handleClick(evt) { // :void
 		switch (this.type) {
 			case 'reset':
-				this._reset(e);
+				this._reset(evt);
 				break;
 			case 'submit':
-				this._submit(e);
+				this._submit(evt);
 				break;
 			default: // type = button
-				this._click(e);
+				this._click(evt);
 		}
 	}
 

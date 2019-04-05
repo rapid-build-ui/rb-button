@@ -1,61 +1,7 @@
 /*******
  * ICON
  *******/
-button {
-	&.with-icon.icon-left {
-		flex-direction: row-reverse;
-	}
-
-	&.no-content.with-icon {
-		rb-icon {
-			left: 0 !important;
-			right: 0 !important;
-			margin-left: 0 !important;
-			margin-right: 0 !important;
-		}
-	}
-
-	&.with-icon {
-		rb-icon {
-			position: relative;
-			top: 1px;
-		}
-	}
-
-	&.with-icon {
-		&.big {
-			&.icon-left {
-				rb-icon { right: 2px; }
-			}
-			&:not(.icon-left) {
-				rb-icon { left: 2px; }
-			}
-		}
-	}
-
-	&.with-icon:not(.no-content) {
-		&.icon-left {
-			rb-icon { margin-right: 5px; }
-		}
-		&:not(.icon-left) {
-			rb-icon { margin-left: 5px; }
-		}
-		&.small {
-			&.icon-left {
-				rb-icon { margin-right: 4px; }
-			}
-			&:not(.icon-left) {
-				rb-icon { margin-left: 4px; }
-			}
-		}
-	}
-
-	&.text.with-icon {
-		&.icon-left {
-			rb-icon { margin-right: 4px; }
-		}
-		&:not(.icon-left) {
-			rb-icon { margin-left: 4px; }
-		}
-	}
+rb-icon {
+	position: relative;
+	top: 1px;
 }

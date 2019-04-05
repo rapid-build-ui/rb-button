@@ -3,7 +3,6 @@
 	?disabled="${props.disabled}"
 	@click="${this._handleClick.bind(this)}"
 	class="
-		no-content
 		${props.kind}
 		${props.size}
 		${props.text ? 'text' : ''}
@@ -11,8 +10,7 @@
 		${props.iconKind ? props.iconRight ? 'icon-right' : 'icon-left' : ''}
 		${props.text && props.text.inherit === 'color' ? 'inherit-color' : ''}
 	">
-	<slot @slotchange="${this._setHasContent.bind(this)}"></slot>
-	${!props.iconKind ? null : html`
+	${props.iconKind && !props.iconRight ? html`
 		<rb-icon
 			?burst="${props.iconBurst}"
 			?pulse="${props.iconPulse}"
@@ -25,7 +23,22 @@
 			source="${View.ifDefined(props.iconSource || undefined)}"
 			valign="${View.ifDefined(props.iconValign || undefined)}">
 		</rb-icon>
-	`}
+	`: null }
+	<slot></slot>
+	${props.iconKind && props.iconRight ? html`
+		<rb-icon
+			?burst="${props.iconBurst}"
+			?pulse="${props.iconPulse}"
+			?spin="${props.iconSpin}"
+			kind="${props.iconKind}"
+			flip="${View.ifDefined(props.iconFlip || undefined)}"
+			size="${View.ifDefined(props.iconSize || undefined)}"
+			speed="${View.ifDefined(props.iconSpeed || undefined)}"
+			rotate="${View.ifDefined(props.iconRotate || undefined)}"
+			source="${View.ifDefined(props.iconSource || undefined)}"
+			valign="${View.ifDefined(props.iconValign || undefined)}">
+		</rb-icon>
+	`: null }
 </button>
 
 <link rel="stylesheet" href="../styles/rb-button.css">
