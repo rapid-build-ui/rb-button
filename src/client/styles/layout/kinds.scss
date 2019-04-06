@@ -7,7 +7,11 @@ button {
 		min-height: inherit;
 		border: inherit;
 		font-size: inherit;
+		font-weight: inherit;
 		line-height: inherit;
+		text-shadow: inherit;
+		letter-spacing: inherit;
+		text-transform: inherit;
 		background-color: transparent;
 		&.inherit-color {
 			color: inherit;
