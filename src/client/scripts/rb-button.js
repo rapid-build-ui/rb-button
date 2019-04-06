@@ -16,8 +16,7 @@ export class RbButton extends RbBase() {
 	constructor() { // :void
 		super();
 		this.rb.events.host.add(['click']);
-		// support for calling rb-button.click()
-		this.rb.events.add(this, 'click', evt => {
+		this.rb.events.add(this, 'click', evt => { // rb-button.click()
 			if (evt.composedPath()[0] !== this) return;
 			this.rb.elms.button.click();
 		});
