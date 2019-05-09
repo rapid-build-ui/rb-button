@@ -4,13 +4,39 @@
 @mixin setCommonStyles() {
 	// Common For All Kinds (root tag)
 	button {
-		border-radius: mapGet($vars, common, border-radius);
+		&:not(.text) {
+			border-radius: mapGet($vars, common, border-radius);
+			transition: mapGet($vars, common, transition);
+		}
+		&.text {
+			transition: mapGet($vars, common, text-button-transition);
+		}
+		&:not(:disabled) {
+			&:not(.text) {
+				opacity: mapGet($vars, common, opacity);
+				&:hover,
+				&:focus  { opacity: mapGet($vars, common, opacity-hover); }
+				&:active { opacity: mapGet($vars, common, opacity); }
+			}
+			&.text {
+				opacity: mapGet($vars, common, text-button-opacity);
+				&:hover,
+				&:focus  { opacity: mapGet($vars, common, text-button-opacity-hover); }
+				&:active { opacity: mapGet($vars, common, text-button-opacity); }
+			}
+			&.text {
+				text-decoration: mapGet($vars, common, text-button-decoration);
+				&:hover,
+				&:focus  { text-decoration: mapGet($vars, common, text-button-decoration-hover); }
+				&:active { text-decoration: mapGet($vars, common, text-button-decoration); }
+			}
+		}
 	}
 
 	// Kinds
-	$kinds: default, danger, info, success, secondary, warning;
+	$kinds: default, danger, info, neutral, success, warning;
 	@each $kind in $kinds {
-		.#{$kind} {
+		.#{$kind}:not(.text) {
 			background-color: mapGet($vars, common, #{$kind}-bg);
 			border-color: mapGet($vars, common, #{$kind}-border-color);
 			color: mapGet($vars, common, #{$kind}-text-color);
@@ -22,6 +48,20 @@
 			&:active:not(:disabled) {
 				background-color: mapGet($vars, common, #{$kind}-bg-active);
 				border-color: mapGet($vars, common, #{$kind}-border-color-active);
+				color: mapGet($vars, common, #{$kind}-text-color-active);
+			}
+		}
+	}
+	// Text Button
+	@each $kind in $kinds {
+		.#{$kind}.text:not(.inherit-color) {
+			color: mapGet($vars, common, #{$kind}-text-button-color);
+			&:hover:not(:disabled),
+			&:focus:not(:disabled) {
+				color: mapGet($vars, common, #{$kind}-text-button-color-hover);
+			}
+			&:active:not(:disabled) {
+				color: mapGet($vars, common, #{$kind}-text-button-color);
 			}
 		}
 	}

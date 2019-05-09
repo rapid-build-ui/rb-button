@@ -36,6 +36,10 @@ common:
 		cacheBust: false
 		html:
 			templateCache: false
+			options:
+				ignoreCustomFragments: [
+					/\s<slot|<\/slot>\s/gi # needed for space between icon and slot
+				]
 		css:
 			fileName:
 				'rb-button.css'

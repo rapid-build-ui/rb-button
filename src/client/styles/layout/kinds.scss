@@ -6,9 +6,18 @@ button {
 		padding: inherit;
 		min-height: inherit;
 		border: inherit;
-		color: inherit;
 		font-size: inherit;
+		font-weight: inherit;
 		line-height: inherit;
+		text-shadow: inherit;
+		letter-spacing: inherit;
+		text-transform: inherit;
 		background-color: transparent;
+		&.inherit-color {
+			color: inherit;
+			&:hover:not(:disabled),
+			&:focus:not(:disabled)  { opacity: .5; }
+			&:active:not(:disabled) { opacity: .7; }
+		}
 	}
 }

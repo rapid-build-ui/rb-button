@@ -2,20 +2,20 @@
  * SIZES
  ********/
 button {
-	padding: remy(6) remy(12);
+	padding: 6px 10px;
 	font-size: remy(16);
 	line-height: remy(24);
 	min-height: remy(26);
 
 	&.small {
-		padding: remy(3) remy(6);
+		padding: 3px 6px;
 		font-size: remy(12);
 		line-height: remy(16);
 		min-height: remy(14);
 	}
 
 	&.big {
-		padding: remy(9) remy(16);
+		padding: 9px 16px;
 		font-size: remy(18);
 		line-height: remy(27);
 		min-height: remy(34);
