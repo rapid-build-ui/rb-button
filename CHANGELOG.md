@@ -1,3 +1,25 @@
+## [0.0.16](https://github.com/rapid-build-ui/rb-button/compare/v0.0.15...v0.0.16) (2019-05-09)
+
+
+### Bug Fixes
+
+* **occasional shift shock:** of content ([71bca10](https://github.com/rapid-build-ui/rb-button/commit/71bca10))
+
+
+### Features
+
+* **new api option:** onclick, just supply a function ([46116f7](https://github.com/rapid-build-ui/rb-button/commit/46116f7))
+* **new api option text:** remove kind = text and make it an api option so kind colors will apply ([f86924e](https://github.com/rapid-build-ui/rb-button/commit/f86924e))
+* **styling:** add a global font family and inherit more styles when it is a text button ([7464cd6](https://github.com/rapid-build-ui/rb-button/commit/7464cd6))
+* **type submit:** support asynchronous form validation before submitting the form ([99952d3](https://github.com/rapid-build-ui/rb-button/commit/99952d3))
+
+
+### Dependencies
+
+* **bump:** deps rb-base v0.0.9 and rb-icon v0.0.14 ([5d97043](https://github.com/rapid-build-ui/rb-button/commit/5d97043))
+
+
+
 ## [0.0.15](https://github.com/rapid-build-ui/rb-button/compare/v0.0.14...v0.0.15) (2019-03-05)
 
 
