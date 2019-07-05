@@ -1,3 +1,17 @@
+## [0.0.17](https://github.com/rapid-build-ui/rb-button/compare/v0.0.16...v0.0.17) (2019-07-05)
+
+
+### Features
+
+* **version:** add to component properties accessible via this.version ([90208a8](https://github.com/rapid-build-ui/rb-button/commit/90208a8))
+
+
+### Dependencies
+
+* **bump:** deps rb-base v0.0.10 and rb-icon v0.0.15 ([0d6fc53](https://github.com/rapid-build-ui/rb-button/commit/0d6fc53))
+
+
+
 ## [0.0.16](https://github.com/rapid-build-ui/rb-button/compare/v0.0.15...v0.0.16) (2019-05-09)
 
 
