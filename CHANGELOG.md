@@ -1,3 +1,12 @@
+## [0.0.19](https://github.com/rapid-build-ui/rb-button/compare/v0.0.18...v0.0.19) (2019-07-16)
+
+
+### Dependencies
+
+* **bump:** deps base v0.0.12 and rb-icon v0.0.17 ([adac9df](https://github.com/rapid-build-ui/rb-button/commit/adac9df))
+
+
+
 ## [0.0.18](https://github.com/rapid-build-ui/rb-button/compare/v0.0.17...v0.0.18) (2019-07-12)
 
 
